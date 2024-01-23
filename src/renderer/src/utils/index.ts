@@ -1,5 +1,13 @@
-import clsx, { ClassValue } from 'clsx'
-import { twMerge } from 'tailwind-merge'
+import clsx, { ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+const dateFormatter = new Intl.DateTimeFormat('de-DE', {
+    dateStyle: 'short',
+    timeStyle: 'short',
+    timeZone: 'IST'
+})
+
+export const formatDateFromMs = (ms: number) => dateFormatter.format(ms)
 
 export const cn = (...args: ClassValue[]) => {
     return twMerge(clsx(...args))
